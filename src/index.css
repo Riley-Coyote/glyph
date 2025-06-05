@@ -1,1 +1,45 @@
-/* Add global styles here */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-bg: #0a0a0a;
+  --terminal-bg: #0f0f0f;
+  --border-color: #1e1e1e;
+  --text-color: #a0a0a0;
+}
+
+body {
+  font-family: 'JetBrains Mono', 'Share Tech Mono', monospace;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  margin: 0;
+  min-height: 100vh;
+}
+
+.terminal-line {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.terminal-line::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--text-color);
+}
+
+.cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
