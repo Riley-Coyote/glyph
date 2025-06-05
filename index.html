@@ -1311,7 +1311,7 @@
         
         // Function to decode potential hidden messages
         function decodeMessages() {
-            const text = document.getElementById('result').innerText;
+            const text = document.getElementById('result').innerText; // Use innerText to get raw text
             const decodedMessageDiv = document.getElementById('decodedMessage');
             
             if (!text) {
@@ -1323,7 +1323,7 @@
             
             // Try each decoding strategy
             for (const strategy of decodingStrategies) {
-                const result = strategy.decode(text);
+                const result = strategy.decode(text); // Pass raw text to decoders
                 
                 if (result.found) {
                     foundMessages.push({
@@ -1487,7 +1487,9 @@
                 if (code < 128) {
                     // Format as surrogate pair notation
                     const lowSurrogateHex = code.toString(16).padStart(2, '0').toUpperCase();
-                    encoded += `56128|U+DB40 56${lowSurrogateHex}|U+DC${lowSurrogateHex}`;
+                    // Corrected the example: 56xxx is decimal, U+DCxx is hex for low surrogate
+                    const lowSurrogateDecimal = 0xDC00 + code;
+                    encoded += `56128|U+DB40 ${lowSurrogateDecimal}|U+DC${lowSurrogateHex}`;
                     
                     // Add space or line break for readability
                     if (i < message.length - 1) {
