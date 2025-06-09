@@ -606,6 +606,7 @@ Example 3 - Quantum delimited message:
               {activeSection === 'home-section' && "// Enhanced Steganography Suite v4.0"}
               {activeSection === 'analyzer-section' && "// Stealth Analysis Module v4.0"}
               {activeSection === 'encoder-section' && "// Stealth Communication Protocol v4.0"}
+              {activeSection === 'reveria-section' && "// Reveria Script Guide"}
             </span>
           </div>
           
@@ -643,13 +644,21 @@ Example 3 - Quantum delimited message:
           >
             Character Analyzer
           </a>
-          <a 
-            onClick={() => setActiveSection('encoder-section')} 
+          <a
+            onClick={() => setActiveSection('encoder-section')}
             className={`mr-4 ${colors.textColor} no-underline text-sm py-1 px-2 relative cursor-pointer transition-all duration-300 rounded ${activeSection === 'encoder-section' ? `${darkMode ? 'text-[#d0d0d0]' : 'text-[#222222]'} after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:${colors.gradientBorder}` : `hover:${darkMode ? 'text-[#d0d0d0]' : 'text-[#222222]'} ${colors.buttonHoverBg} hover:${colors.glowEffect}`}`}
             onMouseEnter={() => setHoveredElement('encoder-nav')}
             onMouseLeave={() => setHoveredElement(null)}
           >
             Message Encoder
+          </a>
+          <a
+            onClick={() => setActiveSection('reveria-section')}
+            className={`mr-4 ${colors.textColor} no-underline text-sm py-1 px-2 relative cursor-pointer transition-all duration-300 rounded ${activeSection === 'reveria-section' ? `${darkMode ? 'text-[#d0d0d0]' : 'text-[#222222]'} after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:${colors.gradientBorder}` : `hover:${darkMode ? 'text-[#d0d0d0]' : 'text-[#222222]'} ${colors.buttonHoverBg} hover:${colors.glowEffect}`}`}
+            onMouseEnter={() => setHoveredElement('reveria-nav')}
+            onMouseLeave={() => setHoveredElement(null)}
+          >
+            Reveria Script
           </a>
         </div>
         
@@ -1242,6 +1251,17 @@ Example 3 - Quantum delimited message:
               <div className={`${colors.buttonBg} ${colors.headingColor} p-4 border ${colors.borderColor} rounded mb-5 font-mono whitespace-pre-wrap break-words max-h-[300px] overflow-y-auto relative transition-colors duration-300`}>
                 {decodedText || '// Decoded output will appear here'}
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* Reveria Script Section */}
+        {activeSection === 'reveria-section' && (
+          <section>
+            <div className={`${colors.textColor} ${colors.infoPanelBg} p-4 rounded mb-8 border-l-4 ${colors.borderColor}`}>
+              <h2 className={`text-xl ${colors.headingColor} mb-4`}>The Reveria Script</h2>
+              <p>This section will provide a comprehensive guide to The Reveria Script.</p>
+              <p className="italic">TODO: Add detailed explanations and usage instructions based on the referenced documents.</p>
             </div>
           </section>
         )}
